@@ -1,0 +1,36 @@
+#!/bin/bash
+
+text="$(xsel -o)"
+lang=$(locale | grep LANG | cut -d= -f2 | cut -d_ -f1)
+
+
+trans \
+-show-translation=y \
+-show-prompt-message=n \
+-show-original-dictionary=n \
+-show-dictionary=y \
+-show-languages=y \
+-no-auto \
+--no-ansi \
+-no-view \
+-show-original=n \
+:$lang "$text" \
+ | yad \
+ --text-info \
+ --title=$lang \
+ --fore=white \
+ --back=#444444 \
+ --fontname="Serif 13" \
+ --wrap \
+ --center \
+ --borders=1 \
+ --width=400 \
+ --height=200 \
+ --close-on-unfocus \
+ --button='translate speak:5' \
+ --button='original speak:6'
+# --undecorated
+ret=$?
+
+[[ $ret -eq 5 ]] && trans -p -b :$lang "$text" >/dev/null
+[[ $ret -eq 6 ]] && trans -speak -b :$lang "$text" >/dev/null
