@@ -2,6 +2,8 @@
 
 Simple gtk GUI for translate selected text with google translator service, It can reproduce the translated words in the source or destination language
 
+# Dependencies:
+
 These dependencies are mandatory:
 
 	translate-shell: ( included )
@@ -37,12 +39,7 @@ These dependencies are optional, but strongly recommended for full functionality
         required for readline-style editing and history in the interactive shell
 
 
-For install run Install.sh
-
-For uninstall run Uninstall.sh
-
-
-Usage:
+# Usage:
 
 	run trans -U to update
 	
