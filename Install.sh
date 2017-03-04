@@ -28,5 +28,9 @@ fi
 cp trans /usr/bin/
 cp translator /usr/bin/
 
+# set permission
+chmod -R 755 /usr/bin/trans
+chmod -R 755 /usr/bin/translator
+
 # end
 echo "translator installed"
